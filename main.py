@@ -3,8 +3,15 @@ import pandas as pd
 import pickle
 import requests
 
+def decompress_pickle(file):
+    data = bz2.BZ2File(file, 'rb')
+    data = pickle.load(data)
+    return data
+
 movies=pickle.load(open('movies.pkl','rb'))
-similarity=pickle.load(open('similarity.pkl','rb'))
+
+similarity = decompress_pickle('similarity.pbz2')
+#similarity=pickle.load(open('similarity.pkl','rb'))
 
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id)
