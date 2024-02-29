@@ -9,7 +9,7 @@ def decompress_pickle(file):
     data = pickle.load(data)
     return data
 
-movies=pickle.load(open('movie-recommendation/movies.pkl','rb'))
+movies=pickle.load(open('/mount/src/movie-recommendation/movies.pkl','rb'))
 
 similarity = decompress_pickle('similarity.pbz2')
 #similarity=pickle.load(open('similarity.pkl','rb'))
